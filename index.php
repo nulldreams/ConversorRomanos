@@ -17,7 +17,10 @@
 <body>
 	<article class="container">
 		<div class="center col-md-10">
-            <h1 class="center">Conversor de números romanos</h1>
+            <div class="center">
+                <h1 class="center">Conversor de números romanos</h1>
+            </div>
+            
             <hr />
             <div class="row">
                 <div class="col-sm-12">
