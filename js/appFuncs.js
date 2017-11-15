@@ -4,6 +4,7 @@ $(function()
         displayLength: 100,
         processing: true,
         serverSide: true,
+        order: [[1, "asc"]],
         columns: [{ "orderable": false }, null],
         lengthChange: false,
         info: false,
