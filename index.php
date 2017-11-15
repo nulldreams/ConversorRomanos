@@ -11,38 +11,7 @@
 	<link href="./css/bootstrap.min.css" rel="stylesheet" />
 	<link href="./css/bootstrap-grid.min.css" rel="stylesheet" />
 	<link href="./css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-	
-	<style type="text/css">
-		.center
-		 {
-			 float: none;
-			 margin-left: auto;
-			 margin-right: auto;
-		 }
-        
-        .col-md-2
-        {
-            padding: 0 !important;
-            margin-left: 15px !important;
-        }
-        
-        @keyframes blink {
-             0% { border-color: red; }
-             100% { border-color: black; }
-         }
-        
-        @-webkit-keyframes blink {
-            0% { border-color: red; }
-            100% { border-color: black; }
-        }
-        
-        .blink {
-            -webkit-animation: blink 800ms linear infinite;
-            -moz-animation: blink 800ms linear infinite;
-            animation: blink 800ms linear infinite;
-        }
-    </style>
-	
+	<link href="./css/default.css" rel="stylesheet" />
 </head>
 
 <body>
