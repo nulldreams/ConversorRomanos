@@ -29,12 +29,15 @@ class RomConverter
 		
 		$errorBit = $this->validRoman($romNumber);
 		
-		if ($errors !== NULL) {
-			$errors = $errorBit;
-		}
-		
 		if (!$silent) {
 			self::showErrors($errorBit);
+		}
+			
+		if ($errorBit > 0 && $errors !== NULL)
+		{
+			$errors = $errorBit;
+			
+			return false;
 		}
 		
 		$stringLength = strlen($romNumber);
