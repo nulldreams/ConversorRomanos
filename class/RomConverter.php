@@ -214,7 +214,7 @@ class RomConverter
 		return false;
 	}
 	
-	public static function formatDecimalToRoman($chunkNumber)
+	private static function formatDecimalToRoman($chunkNumber)
 	{
 		$result = '';
 		
