@@ -82,8 +82,6 @@ class RomConverter
 			$output .= self::formatDecimalToRoman($chunkNumber);
 		}
 		
-		echo 'Out: '.$output;
-		
 		return strtoupper($output);
 	}
 	

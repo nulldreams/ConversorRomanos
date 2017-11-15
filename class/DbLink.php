@@ -51,14 +51,8 @@ class DbLink
 	private function execute(string $query)
 	{
 		$dataset = $this->link->query($query);
-		;
 		
-		if (!$dataset)
-		{
-			
-			echo $query . '<br>';
-			echo $this->link->error . '<br>';
-			
+		if (!$dataset) {
 			throw new Exception("Ocorreu um erro durante a consulta.");
 		}
 		
