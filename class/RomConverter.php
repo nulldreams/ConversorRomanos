@@ -80,9 +80,6 @@ class RomConverter
 		
 		foreach ($parsedNum as $chunkNumber) {
 			$output .= self::formatDecimalToRoman($chunkNumber);
-			
-			
-			echo "$output\n";
 		}
 		
 		return strtoupper($output);
@@ -223,19 +220,12 @@ class RomConverter
 		
 		while ($chunkNumber > 0)
 		{
-			
-			/*
-			 * 987
-			 * CMLXXXVII
-			 **/
 			foreach (self::romValues as $roman => $value)
 			{
 				$digitCount = intval($chunkNumber / $value);
-				echo "$chunkNumber\n";
 				
 				if (self::validRomanDigitRange($roman, $digitCount, $chunkNumber))
 				{
-					echo "$roman\n";
 					$chunkNumber -= ($value * $digitCount);
 					
 					for ($count = 0; $count < $digitCount; $count++) {
@@ -276,8 +266,6 @@ class RomConverter
 		
 		if ($digitCount > 3)
 			return false;
-		
-		//&& ($canRepeat || (!$canRepeat && ($number % self::romValues[$roman] < $closestRep * 3) && $digitCount === 1)))
 		
 		if (!$canRepeat && $digitCount > 1)
 			return false;
