@@ -13,6 +13,7 @@ $(function()
         },
         language: {
             search: 'Busca:',
+            emptyTable: 'Não​ ​há​ ​itens​ ​a  serem​ ​exibidos.',
             paginate: {
                 previous: '<',
                 next: '>'
