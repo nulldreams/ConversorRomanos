@@ -80,6 +80,9 @@ class RomConverter
 		
 		foreach ($parsedNum as $chunkNumber) {
 			$output .= self::formatDecimalToRoman($chunkNumber);
+			
+			
+			echo "$output\n";
 		}
 		
 		return strtoupper($output);
@@ -214,18 +217,25 @@ class RomConverter
 		return false;
 	}
 	
-	public function formatDecimalToRoman($chunkNumber)
+	public static function formatDecimalToRoman($chunkNumber)
 	{
 		$result = '';
 		
 		while ($chunkNumber > 0)
 		{
+			
+			/*
+			 * 987
+			 * CMLXXXVII
+			 **/
 			foreach (self::romValues as $roman => $value)
 			{
 				$digitCount = intval($chunkNumber / $value);
+				echo "$chunkNumber\n";
 				
 				if (self::validRomanDigitRange($roman, $digitCount, $chunkNumber))
 				{
+					echo "$roman\n";
 					$chunkNumber -= ($value * $digitCount);
 					
 					for ($count = 0; $count < $digitCount; $count++) {
@@ -252,20 +262,29 @@ class RomConverter
 		return $result;
 	}
 	
-	private static function validRomanDigitRange(string $roman, int $digitCount, $number)
+	private static function validRomanDigitRange(string $roman, int $digitCount, int $number)
 	{
 		$canRepeat = in_array($roman, self::allowRepeat);
-		
 		$closestRepRom = self::findClosestRepetable($roman);
-		
 		$closestRep = 0;
 		
 		if ($closestRepRom)
 			$closestRep = self::romValues[$closestRepRom];
 		
-		if ($digitCount > 0 && $digitCount <= 3 && ($canRepeat || (!$canRepeat && ($number % self::romValues[$roman] < $closestRep * 3) && $digitCount === 1)))
-			return true;
+		if ($digitCount < 1)
+			return false;
 		
-		return false;
+		if ($digitCount > 3)
+			return false;
+		
+		//&& ($canRepeat || (!$canRepeat && ($number % self::romValues[$roman] < $closestRep * 3) && $digitCount === 1)))
+		
+		if (!$canRepeat && $digitCount > 1)
+			return false;
+		
+		if ($number % self::romValues[$roman] > $closestRep * 3 && $digitCount === 1)
+			return false;
+		
+		return true;
 	}
 }
