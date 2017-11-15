@@ -1,8 +1,6 @@
 <?php
 require('../config.php');
 
-$RomConverter = new RomConverter();
-
 $result = new stdClass();
 $romanValue = '';
 $decimalValue = 0;
@@ -12,13 +10,13 @@ if (intval($_POST['method']) === 0)
 {
 	$romanValue = strtoupper($_POST['number']);
 	
-	$decimalValue = $result->convertedValue = $RomConverter->romanToDecimal($romanValue, true, $errors);
+	$decimalValue = $result->convertedValue = RomConverter::romanToDecimal($romanValue, true, $errors);
 }
 else
 {
 	$decimalValue = intval($_POST['number']);
 	
-	$romanValue = $result->convertedValue = $RomConverter->decimalToRoman($decimalValue, true, $errors);
+	$romanValue = $result->convertedValue = RomConverter::decimalToRoman($decimalValue, true, $errors);
 }
 
 $result->errors = $errors;

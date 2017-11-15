@@ -23,11 +23,11 @@ class RomConverter
 	
 	protected const specialValues = array('i', 'x', 'c'); // Algarismos que podem ser subtraídos.
 	
-	public function romanToDecimal(string $romNumber, bool $silent = false, int &$errors = NULL)
+	public static function romanToDecimal(string $romNumber, bool $silent = false, int &$errors = NULL)
 	{
 		$romNumber = strtolower($romNumber);
 		
-		$errorBit = $this->validRoman($romNumber);
+		$errorBit = self::validRoman($romNumber);
 		
 		if (!$silent) {
 			self::showErrors($errorBit);
@@ -62,7 +62,7 @@ class RomConverter
 		return $decNumber;
 	}
 	
-	public function DecimalToRoman(int $num, bool $silent = false, &$error = NULL)
+	public static function DecimalToRoman(int $num, bool $silent = false, &$error = NULL)
 	{
 		if ($num > 3999 || $num < 1)
 		{
@@ -88,7 +88,7 @@ class RomConverter
 		return strtoupper($output);
 	}
 	
-	public function validRoman(string $romNumber)
+	public static function validRoman(string $romNumber)
 	{
 		$errors = 0;
 		
