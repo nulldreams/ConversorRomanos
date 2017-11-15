@@ -12,7 +12,7 @@
 	<link href="./css/bootstrap-grid.min.css" rel="stylesheet" />
 	<link href="./css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 	
-	<style>
+	<style type="text/css">
 		.center
 		 {
 			 float: none;
@@ -25,7 +25,23 @@
             padding: 0 !important;
             margin-left: 15px !important;
         }
-	</style>
+        
+        @keyframes blink {
+             0% { border-color: red; }
+             100% { border-color: black; }
+         }
+        
+        @-webkit-keyframes blink {
+            0% { border-color: red; }
+            100% { border-color: black; }
+        }
+        
+        .blink {
+            -webkit-animation: blink 800ms linear infinite;
+            -moz-animation: blink 800ms linear infinite;
+            animation: blink 800ms linear infinite;
+        }
+    </style>
 	
 </head>
 
@@ -41,7 +57,7 @@
                     <form id="conversor" class="col-md-10">
                         <div class="form-group row">
                             <div classs="col-md-2">
-                                <input class="form-control input-sm d" id="number" name="number" type="text" placeholder="Entrada" />
+                                <input class="form-control input-sm" id="number" name="number" type="text" placeholder="Entrada" />
                             </div>
                             <div class="col-md-2">
                                 <button type="submit" class="btn btn-default">Converter </button>

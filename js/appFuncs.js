@@ -125,7 +125,12 @@ $(function()
                         return;
                     }
 
-                    $('#result').val(dataObj.convertedValue);
+                    var resultDOM = $('#result');
+                    resultDOM.val(dataObj.convertedValue);
+                    resultDOM.addClass('blink');
+                    setTimeout(function()  {
+                        resultDOM.removeClass('blink');
+                    }, 3200);
 
                     var notifyDOM = $('#notify');
 
